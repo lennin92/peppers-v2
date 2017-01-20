@@ -28,21 +28,25 @@ class Classifier(object):
         return self.classifications[id]
 
     def __init__(self):
-        logging.info('Loading Network')
-        if settings.CAFFE_GPU:
-            caffe.set_mode_gpu()
-        else:
-            caffe.set_mode_cpu()
-        self.net = caffe.Classifier(settings.CAFFE_MODEL, settings.CAFFE_WEIGHTS)
-        self.clasificaciones = Clasificacion.objects.all()
-        labels_df = pd.DataFrame([{
-                'synset_id': c.id,
-                'name': c.etiqueta
-            } for c in self.clasificaciones
-        ])
-        self.classifications = {c.id:c for c in self.clasificaciones}
-        self.labels = labels_df.sort_values(by='synset_id')['name'].values
-        logging.info('Loaded Network')
+        try:
+            logging.info('Loading Network')
+            if settings.CAFFE_GPU:
+                caffe.set_mode_gpu()
+            else:
+                caffe.set_mode_cpu()
+            self.net = caffe.Classifier(settings.CAFFE_MODEL, settings.CAFFE_WEIGHTS)
+            self.clasificaciones = Clasificacion.objects.all()
+            labels_df = pd.DataFrame([{
+                    'synset_id': c.id,
+                    'name': c.etiqueta
+                } for c in self.clasificaciones
+            ])
+            self.classifications = {c.id:c for c in self.clasificaciones}
+            self.labels = labels_df.sort_values(by='synset_id')['name'].values
+            logging.info('Loaded Network')
+        except Exception as err:
+            logging.info('Loading Net error: %s', err)
+
 
     def forward(self):
         self.net.forward()
