@@ -3,7 +3,7 @@ djangorestframework
 Pillow
 django_rest_swagger
 requests
-nunmpy
+numpy
 pandas
 pydicom
 pypng
