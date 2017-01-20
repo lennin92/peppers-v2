@@ -1,0 +1,10 @@
+Django==1.10.3
+djangorestframework==3.5.3
+Pillow
+django_rest_swagger==2.1.0
+requests==2.11.1
+nunmpy
+pandas
+pydicom
+pypng
+psycopg2
