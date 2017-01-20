@@ -143,17 +143,6 @@ def analizar_estudio(estudio):
     return sugerencias
 
 
-def get_or_create_Object(_class_, object, *args, **kwars):
-    try:
-        obj = _class_.objects.filter(*args,**kwars)
-    except SomeModel.DoesNotExist:
-        object.save()
-        obj = object
-    return obj
-    
-    
-    
-
 def get_study_object(studyUID):
     try:
         s = Estudio.objects.get(estudio=studyUID)
