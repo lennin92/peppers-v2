@@ -1,6 +1,9 @@
 Django
 djangorestframework
 Pillow
+coreapi
+openapi-codec
+simplejson
 django-rest-swagger
 requests
 numpy
