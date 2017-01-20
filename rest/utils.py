@@ -47,9 +47,11 @@ class Classifier(object):
         except Exception as err:
             logging.info('Loading Net error: %s', err)
 
-
     def forward(self):
-        self.net.forward()
+        try:
+            self.net.forward()
+        except Exception as err:
+            logging.info('Forwarding Net error: %s', err)
 
     def classify(self, image):
         try:
