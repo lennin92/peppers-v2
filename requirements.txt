@@ -1,7 +1,7 @@
 Django
 djangorestframework
 Pillow
-django_rest_swagger
+django-rest-swagger
 requests
 numpy
 pandas
