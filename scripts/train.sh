@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-DOWNLOAD_PATH=""
-CSV_PATH=""
-VAL_CSV_PATH=""
-LMDB_PATH=""
-RESIZE_HEIGHT=256
-RESIZE_WIDTH=256
-TOOLS=""
-SOLVER=""
+DOWNLOAD_PATH=""    # Direccion de carpeta donde se descargaran los PNG
+CSV_PATH=""         # Direccion donde se guardara el csv para entrenar
+VAL_CSV_PATH=""     # Direccion donde se guardara el csv de validacion
+LMDB_PATH=""        # Direccion donde se almacenara el archivo lmdb
+RESIZE_HEIGHT=256   # Cambio de altura (poner 0 para no cambiar)
+RESIZE_WIDTH=256    # Cambio de anchura (poner 0 para no cambiar)
+TOOLS=""            # Direcion donde estan los ejecutables de caffe
+SOLVER=""           # Direccion del solver.prototxt (archivo de parametros de entrenamiento)
 
 
 echo "Downloading images"
