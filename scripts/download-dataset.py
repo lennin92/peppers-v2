@@ -30,7 +30,7 @@ from rest.models import CorreccionDiagnostico, SugerenciaDiagnostico, Imagen
 
 def get_correccion_object(imagen):
     try:
-        im = CorreccionDiagnostico.objects.filter(imagen=imagen)
+        im = CorreccionDiagnostico.objects.filter(imagen=imagen)[0]
     except CorreccionDiagnostico.DoesNotExist:
         im = None
     return im
