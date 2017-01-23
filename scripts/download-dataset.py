@@ -5,6 +5,7 @@ import urlparse as url
 import requests
 import csv
 import random
+import django
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VAL_RAT = 0.25
@@ -20,6 +21,8 @@ else:
 print("WORKIN ON " + BASE_PATH)
 sys.path.append(BASE_PATH)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "peppers.settings")
+
+django.setup()
 
 from django.conf import settings
 from rest.models import CorreccionDiagnostico, SugerenciaDiagnostico, Imagen
