@@ -18,7 +18,7 @@ else:
     DOWNLOAD_PATH = 'D:/descargas_png/'
 
 print("WORKIN ON " + BASE_PATH)
-
+sys.path.append(BASE_PATH)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "peppers.settings")
 
 from django.conf import settings
