@@ -30,7 +30,7 @@ from rest.models import CorreccionDiagnostico, SugerenciaDiagnostico, Imagen
 
 def get_correccion_object(imagen):
     try:
-        im = CorreccionDiagnostico.objects.filter(imagen=imagen)[0]
+        im = CorreccionDiagnostico.objects.filter(imagen=imagen)
         if len(im)>0:
             im = im[0]
         else:
