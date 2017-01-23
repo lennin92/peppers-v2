@@ -15,7 +15,7 @@ $(python download-dataset.py $CSV_PATH $VAL_CSV_PATH $DOWNLOAD_PATH )
 
 
 echo "Creating train lmdb..."
-GLOG_logtostderr=1 $TOOLS/convert_imageset \
+GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
@@ -24,7 +24,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     $LMDB_PATH/train_lmdb
 
 echo "Creating validation lmdb..."
-GLOG_logtostderr=1 $TOOLS/convert_imageset \
+GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
@@ -34,7 +34,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
 
 
 echo "Training network (Press Ctrl+C to finish)..."
-GLOG_logtostderr=1 $TOOLS/caffe \
+GLOG_logtostderr=1 $TOOLS/caffe.bin \
     train \
     --solver $SOLVER
 
