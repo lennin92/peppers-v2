@@ -48,6 +48,9 @@ class SugerenciaDiagnostico(models.Model):
     es_correcto = models.BooleanField(default=True)
     fecha_hora = models.DateTimeField(auto_now_add=True, blank=True)
 
+    class __Meta__:
+        unique_together = (("imagen"),)
+
 
 class CorreccionDiagnostico(models.Model):
     imagen = models.ForeignKey('Imagen')
