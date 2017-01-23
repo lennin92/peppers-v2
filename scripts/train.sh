@@ -11,7 +11,7 @@ SOLVER=""           # Direccion del solver.prototxt (archivo de parametros de en
 
 
 echo "Downloading images"
-$(python download-dataset.py $CSV_PATH $VAL_CSV_PATH $DOWNLOAD_PATH )
+python download-dataset.py $CSV_PATH $VAL_CSV_PATH $DOWNLOAD_PATH
 
 
 echo "Creating train lmdb..."
