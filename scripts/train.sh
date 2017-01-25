@@ -33,7 +33,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     $LMDB_PATH/val_lmdb
 
 
-printf"\n\nTraining network (Press Ctrl+C to finish)..."
+printf "\n\nTraining network (Press Ctrl+C to finish)..."
 GLOG_logtostderr=1 $TOOLS/caffe.bin \
     train \
     --solver $SOLVER
