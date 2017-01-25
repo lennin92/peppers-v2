@@ -10,11 +10,11 @@ TOOLS=""            # Direcion donde estan los ejecutables de caffe
 SOLVER=""           # Direccion del solver.prototxt (archivo de parametros de entrenamiento)
 
 
-echo "Downloading images"
+printf "\n\nDownloading images"
 python download-dataset.py $CSV_PATH $VAL_CSV_PATH $DOWNLOAD_PATH
 
 
-echo "Creating train lmdb..."
+printf "\n\nCreating train lmdb..."
 GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
@@ -23,7 +23,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     $CSV_PATH \
     $LMDB_PATH/train_lmdb
 
-echo "Creating validation lmdb..."
+printf "\n\nCreating validation lmdb..."
 GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
@@ -33,9 +33,9 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset.bin \
     $LMDB_PATH/val_lmdb
 
 
-echo "Training network (Press Ctrl+C to finish)..."
+printf"\n\nTraining network (Press Ctrl+C to finish)..."
 GLOG_logtostderr=1 $TOOLS/caffe.bin \
     train \
     --solver $SOLVER
 
-echo "Done"
+printf "\n\nDone"
