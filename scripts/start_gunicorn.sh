@@ -9,7 +9,6 @@ WORKERS=3                                           # how many worker processes 
 WORKER_TYPE="gevent"                                # worker type (sync, eventel, gevent, tornado) RECOMENDED: gevent
 DJANGO_WSGI_MODULE="peppers.wsgi"                   # WSGI module name
 PROJECT_DIR="/home/administrador/peppers-v2"        # Project absolute path
-CAFFE_DIR="/home/administrador/caffe/python"        # Direccion de pycaffe
 
 echo "Starting $NAME as `whoami`"
 
@@ -21,4 +20,4 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --bind=$BIND_SOCKET \
   --log-level=$LOG_LEVEL \
   --log-file=$LOG_FILE \
-  --pythonpath '$PROJECT_DIR,$CAFFE_DIR'
+  --pythonpath $PROJECT_DIR
