@@ -21,4 +21,4 @@ exec gunicorn ${DJANGO_WSGI_MODULE}:application \
   --bind=$BIND_SOCKET \
   --log-level=$LOG_LEVEL \
   --log-file=$LOG_FILE \
-  --pythonpath $PROJECT_DIR
+  --pythonpath '$PROJECT_DIR,$CAFFE_DIR'
