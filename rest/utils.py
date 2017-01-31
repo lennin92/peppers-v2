@@ -25,6 +25,7 @@ class Classifier(object):
     classifications = {}
 
     def get_classification(self, id):
+        print(self.classifications)
         return self.classifications[id]
 
     def __init__(self):
