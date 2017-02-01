@@ -60,7 +60,7 @@ class CorreccionDiagnosticoViewSet(viewsets.ModelViewSet):
             cl = d['clasificacion_correcta']
             c = CorreccionDiagnostico()
             c.imagen = utils.get_image_object(i['studyUID'], i['seriesUID'], i['objectUID'])
-            # c.usuario = user
+            c.usuario = user
             c.observacion = d['observacion']
             c.clasificacion_correcta = Clasificacion.objects.get(id=cl['id'])
             c.save()
