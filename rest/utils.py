@@ -27,7 +27,10 @@ class Classifier(object):
     def get_classification(self, id):
         #print(self.classifications)
         #return self.classifications[id]
-        return Clasificacion.objects.get(id=id)
+        try:
+            return Clasificacion.objects.get(id=id)
+        except Clasificacion.DoesNotExist:
+            return Clasificacion.objects.get(id=6)
 
     def __init__(self):
         try:
