@@ -30,7 +30,13 @@ class Classifier(object):
         try:
             return Clasificacion.objects.get(id=id)
         except Clasificacion.DoesNotExist:
-            return Clasificacion.objects.get(id=6)
+            # return Clasificacion.objects.get(id=6)
+            c = Clasificacion()
+            c.id = -1
+            c.etiqueta = "Inclasificable"
+            c.descripcion = "La imagen no coincide con ninguna clasificacion en el registro"
+            return c
+        
 
     def __init__(self):
         try:
