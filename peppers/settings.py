@@ -145,6 +145,16 @@ REST_FRAMEWORK = {
     )
 }
 
+from django.utils.translation import ugettext_lazy as _
+LANGUAGES = (
+    ('es', _('Spanish')),
+)
+
+# Definimos la ruta de los archivos de idiomas
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
 LOGIN_URL = 'rest_framework:login'
 LOGOUT_URL = 'rest_framework:logout'
 
