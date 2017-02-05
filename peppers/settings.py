@@ -50,7 +50,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'peppers.urls'
@@ -153,6 +154,12 @@ LANGUAGES = (
 # Definimos la ruta de los archivos de idiomas
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
+)
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.request",
 )
 
 LOGIN_URL = 'rest_framework:login'
